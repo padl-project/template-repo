@@ -1,0 +1,56 @@
+---
+title: "Upload files to Drive"
+author: "Camila Vargas"
+date: "9/30/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(googledrive)
+library(tidyverse)
+
+```
+
+
+## Upload to dive
+Data
+```{r}
+
+## Finalized data folder url
+final_files_url <- " "
+
+## Upload weather data **UPADATE FILE PATH AND NAME**
+drive_upload(media = paste0(getwd(),"/project.XX/FILE_NAME.csv"),
+             path = as_id(finalized_url),
+             name = "FILE NAME",
+             type = "csv")
+
+
+
+```
+
+Metadata Doc
+
+```{r}
+## Upload metadata
+# **UPDATE FILE NAME** last_name_topic_metadata
+
+drive_upload(media = here::here("metadata_doc/metadata_doc.docx"),
+             path = as_id(final_files_url),
+             name = ".docx",
+             type = "docx")
+```
+
+xml file
+
+```{r}
+# **UPDATE project ID and EDI ID**
+
+drive_upload(media = here::here("project.XX/edi.XX.xml"),
+             path = as_id(final_files_url),
+             name = "edi.XX.xml")
+
+```
+
