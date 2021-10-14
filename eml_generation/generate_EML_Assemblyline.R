@@ -15,7 +15,7 @@ if (length(entity[entity$entitytype=="otherEntity","filename"])!=0) {otherentity
 #create a template
 eal_inputs <- EMLassemblyline::template_arguments(
   empty = T, 
-  data.path = project_path, 
+  data.path = paste0(getwd(), "/clean_data"), #project_path, 
   data.table = if (datatable_present==1) {entity[entity$entitytype=="dataTable","filename"]} else {NULL},
   other.entity = if (otherentity_present==1){entity[entity$entitytype=="otherEntity","filename"]} else {NULL}
 )
@@ -23,8 +23,8 @@ eal_inputs <- EMLassemblyline::template_arguments(
 #dataset level
 eal_inputs$dataset.title <- excel_input$dataset$title
 eal_inputs$data.path = eal_inputs$eml.path <- project_path
-#eal_inputs$data.path <- paste0(getwd(), "/clean_data")
-eal_inputs$eml.path <- project_path
+eal_inputs$data.path <- paste0(getwd(), "/clean_data")
+#eal_inputs$eml.path <- project_path
 eal_inputs$maintenance.description <- 'Completed'
 eal_inputs$package.id <- excel_input$dataset$packageid
 eal_inputs$user.domain <- excel_input$dataset$scope

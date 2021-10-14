@@ -38,6 +38,9 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
+## omit raw_data folder and everything inside
+raw_data/
+raw_data/*
 
 ## omit clean_data folder and everything inside
 clean_data/
