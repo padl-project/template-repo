@@ -19,9 +19,9 @@ options(scipen=999)
 
 # If it does not exist, create raw data folders 
 
-dir.create(here::here("raw_data"))
+dir.create(here::here("6.raw_data"))
 
-dir.create(here::here("clean_data"))
+dir.create(here::here("7.clean_data"))
 
 
 ```
