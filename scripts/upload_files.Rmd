@@ -21,9 +21,11 @@ Data
 ## Finalized data folder url
 final_files_url <- " "
 
-## Upload weather data **UPADATE FILE PATH AND NAME**
-drive_upload(media = paste0(getwd(),"/project.XX/FILE_NAME.csv"),
-             path = as_id(finalized_url),
+## Upload data 
+# **UPADATE FILE PATH AND NAME**
+
+drive_upload(media = paste0(getwd(),"/clean_data/FILE_NAME.csv"),
+             path = as_id(final_files_url),
              name = "FILE NAME",
              type = "csv")
 
@@ -39,7 +41,7 @@ Metadata Doc
 
 drive_upload(media = here::here("metadata_doc/metadata_doc.docx"),
              path = as_id(final_files_url),
-             name = ".docx",
+             name = "FILE NAME_metadata.docx",
              type = "docx")
 ```
 

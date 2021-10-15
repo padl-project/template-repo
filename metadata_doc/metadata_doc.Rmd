@@ -22,7 +22,7 @@ The information in this document will be used to create the EML of the data pack
 
 ## 1. Data Package Title
 
-Palmyra Atoll Weather Tables and Monthly Rainfall 2008-2017
+
 
 
 ## 2. Dataset Title
@@ -36,7 +36,7 @@ _Please provide an abstract specifically of the dataset. This is different from 
 
 [See example here](https://docs.google.com/document/d/1KdHJObHl5Bxxr9t0LISTwX0cCSVvx7NPUjz5T_P9JEc/edit#)
 
-Weather data collected from Palmyra Atoll by US Fish and Wildlife Service and the Nature Conservancy for the period of 2010-2016, with rainfall data available from 2008-2017. 
+ 
 
 
 ## 4. Creators
@@ -46,11 +46,11 @@ _These are the people who will show up as authors in the dataset citation. These
 
 ```{r, creator table, echo = FALSE, message= FALSE, warning= FALSE}
 
-first_name <- c(" ", " ")
+first_name <- c("", "")
 middle_in <- c("", "")
 last_name <- c(" ", " ")
-organization <- c(" ", " ")
-email <- c(" ", " ")
+organization <- c("", "")
+email <- c("", "")
 orcid <- c("", "")
 
 creator_colname <- c("First Name", "Middle Initial", "Last Name", "Organization", "email address", "ORCID ID")
@@ -87,12 +87,12 @@ _You may also list other personnel who participated in the project (such as fiel
 
 ```{r, personnel table, echo = FALSE, message= FALSE, warning= FALSE}
 
-p_first_name <- c(" ", "Camila")
+p_first_name <- c("", "Camila")
 p_middle_in <- c("", "", "")
 p_last_name <- c(" ", "Vargas Poulsen", " ")
 p_organization <- c(" ", "PADL Data Manager, University of California Santa Barbara")
-p_email <- c(" ", "camilavargas@ucsb.edu", " ")
-p_orcid <- c("", "", " ")
+p_email <- c("", "camilavargas@ucsb.edu", " ")
+p_orcid <- c("", "", "")
 p_role <- c("contact", "associated party")
 
 personnel_colnames <- c("First Name", "Middle Initial", "Last Name", "Organization", "email address", "ORCID ID", "Role in project")
@@ -134,7 +134,7 @@ Attribution is required. CC licenses require that those who reuse a work provide
 ## 7. Keywords
 _Using keywords from a controlled vocabulary (CV) will improve your data's future discovery and reuse.  The LTER CV is a good source for keywords. Access the [LTER CV here](https://vocab.lternet.edu/vocab/vocab/index.php).  Also, please determine one or two keywords that best describe your lab, station, and/or project (e.g., Trout Lake Station, NTL LTER).). Add as many rows to this table as needed_
 
-- 
+- Palmyra Atoll
 
 
 
@@ -284,7 +284,7 @@ Each row in the below table describes one column in your data table.  Complete e
 
 # **UPDATE NAMES**
 
-path_data <- here::here("project.XX")
+path_data <- here::here("clean_data")
 path_templates <- here::here("data_attributes")
 file1_name <- "FILE NAME"
 file2_name <- "FILE NAME"
@@ -294,7 +294,7 @@ file2_name <- "FILE NAME"
 EMLassemblyline::template_table_attributes(
   path = path_templates,
   data.path = path_data,
-  data.table = paste0(file2_name, ".csv"))
+  data.table = paste0(file1_name, ".csv"))
 
 ## reading text into a data frame
 data_attributes1 <- read.delim2(here::here(paste0("data_attributes/attributes_", file1_name, ".txt"))) %>% 
