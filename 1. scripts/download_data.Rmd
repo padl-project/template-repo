@@ -43,11 +43,19 @@ files <- drive_ls(as_id(folder_url))
 
 ## Download all file to local computer. 
 
-purrr::walk2(
-    map(files$id, as_id),
-    paste0("raw_data/", files$name),
-    drive_download,
-    overwrite = TRUE)
+# purrr::walk2(
+#     map(files$id, as_id),
+#     paste0("raw_data/", files$name),
+#     drive_download,
+#     overwrite = TRUE)
+
+## Download one specific file to local computer
+
+# **UPDATE NUMBER IN BRACKETS**
+
+drive_download(as_id(files$id[1]),
+               path = paste0("raw_data/", files$name[1]),
+               overwrite = T)
 
 ```
 
