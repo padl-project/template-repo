@@ -15,7 +15,7 @@ library(flextable)
 
 ```
 
-Please revise and fill in as much information as possible. Fields highlighted in yellow must be completed.
+Please **revise and fill in** as much information as possible. Fields highlighted in yellow must be completed.
 
 
 The information in this document will be used to create the EML of the data package to be published on the [Environmental Data Initiative (EDI) repository](https://portal.edirepository.org/nis/home.jsp).
@@ -274,8 +274,9 @@ Each row in the below table describes one column in your data table.  Complete e
 - **Missing value code:** If a code for ‘no data’ is used, please specify: e.g., -99999, NA
 - **Missing value code Explanation:** Why are these values missing? e.g.: value not available, value not recorded.
 
-- **Table name:** (Add a short name for this table)
-- **Table description:** (Add brief description of table contents)
+
+**Table name:** (Add a short name for this table)
+**Table description:** (Add brief description of table contents)
 
 
 ```{r, create data attributes tables, echo = FALSE, message= FALSE, warning= FALSE}
@@ -433,7 +434,7 @@ flextable::flextable(other_objects) %>%
 
 
 ## 17. Articles
-_List articles citing this dataset_
+_List articles citing this dataset. Add as many rows as necessary_
 
 
 ```{r, publications, echo = FALSE, message= FALSE, warning= FALSE}
