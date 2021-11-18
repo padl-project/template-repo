@@ -283,26 +283,64 @@ Each row in the below table describes one column in your data table.  Complete e
 
 ## Location of datasets in the package
 
-# **UPDATE NAMES**
+path_data <- here::here("7.clean_data")
+path_templates <- here::here("3.data_attributes")
 
-path_data <- here::here("clean_data")
-path_templates <- here::here("data_attributes")
-file1_name <- "FILE NAME"
-file2_name <- "FILE NAME"
+#-----------------------------------------------------------------#
 
+
+## If there is just one file in 7.clean_data run this code
+## **UPDATE NAMES**
+
+# file1_name <- "FILE NAME"
+# 
+# ## Creating the attribute .txt
+# EMLassemblyline::template_table_attributes(
+#   path = path_templates,
+#   data.path = path_data,
+#   data.table = paste0(file1_name, ".csv"))
+# 
+# ## reading text into a data frame
+# data_attributes1 <- read.delim2(here::here(paste0("data_attributes/attributes_", file1_name, ".txt"))) %>% 
+#   mutate(unit = case_when(unit == "!Add units here!" ~ "*"))
+
+#------------------------------------------------------------------#
+
+## If there is more than one data set in 7.clean_data, run this code
+
+## Create table with all the file names
+files_names <- tibble(
+  list.files(path_data, pattern = "csv")) %>% 
+  rename(file_name = 1) %>% 
+  mutate(file_name = str_remove(file_name, ".csv"),
+         attribute_name = paste0("data_attributes", 1:n()),
+         position = 1:n())
 
 ## Creating the attribute .txt
-EMLassemblyline::template_table_attributes(
+
+for (i in files_names$file_name){
+
+  EMLassemblyline::template_table_attributes(
   path = path_templates,
   data.path = path_data,
-  data.table = paste0(file1_name, ".csv"))
+  data.table = paste0(i, ".csv"))
+}
 
 ## reading text into a data frame
-data_attributes1 <- read.delim2(here::here(paste0("data_attributes/attributes_", file1_name, ".txt"))) %>% 
-  mutate(unit = case_when(unit == "!Add units here!" ~ "*"))
 
-data_attributes2 <- read.delim2(here::here(paste0("data_attributes/attributes_", file2_name, ".txt"))) %>% 
+##General function
+read_attribute <- function(test){
+  
+  read.delim2(here::here(paste0("3.data_attributes/attributes_", test, ".txt"))) %>% 
   mutate(unit = case_when(unit == "!Add units here!" ~ "*"))
+}
+
+## Loop to read and name each file 
+for (i in files_names$position){
+  
+  assign(files_names$attribute_name[i], read_attribute(files_names$file_name[i]))
+
+  }
 
 
 ```
