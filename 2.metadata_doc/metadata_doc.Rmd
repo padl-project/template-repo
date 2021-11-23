@@ -88,11 +88,11 @@ _You may also list other personnel who participated in the project (such as fiel
 ```{r, personnel table, echo = FALSE, message= FALSE, warning= FALSE}
 
 p_first_name <- c("", "Camila")
-p_middle_in <- c("", "", "")
-p_last_name <- c(" ", "Vargas Poulsen", " ")
+p_middle_in <- c("", "")
+p_last_name <- c(" ", "Vargas Poulsen")
 p_organization <- c(" ", "PADL Data Manager, University of California Santa Barbara")
-p_email <- c("", "camilavargas@ucsb.edu", " ")
-p_orcid <- c("", "", "")
+p_email <- c("", "camilavargas@ucsb.edu")
+p_orcid <- c("", "")
 p_role <- c("contact", "associated party")
 
 personnel_colnames <- c("First Name", "Middle Initial", "Last Name", "Organization", "email address", "ORCID ID", "Role in project")
@@ -301,7 +301,7 @@ path_templates <- here::here("3.data_attributes")
 #   data.table = paste0(file1_name, ".csv"))
 # 
 # ## reading text into a data frame
-# data_attributes1 <- read.delim2(here::here(paste0("data_attributes/attributes_", file1_name, ".txt"))) %>% 
+# data_attributes1 <- read.delim2(here::here(paste0("3.data_attributes/attributes_", file1_name, ".txt"))) %>% 
 #   mutate(unit = case_when(unit == "!Add units here!" ~ "*"))
 
 #------------------------------------------------------------------#
@@ -377,7 +377,7 @@ EMLassemblyline::template_categorical_variables(
 
 # **UPDATE NAMES**
 
-cat_vars <- read.delim2(here::here("data_attributes/catvars_FILE NAME.txt"))
+cat_vars <- read.delim2(here::here(paste0("3.data_attributes/catvars_", file1_name,".txt")))
 
 ```
 
