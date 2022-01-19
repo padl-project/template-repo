@@ -117,11 +117,11 @@ _**Please highlight** the license for the release of your data. Click on the lic
 
 [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
 
-**Default**
 
-Public Domain Dedication, aka “No Rights Reserved.” This one means, “If I hold copyright in this, I waive it. And if we’re dealing with a country where we can’t waive copyright, here’s a broad public license with no attribution requirement. And just as a backup, I also promise not to sue you for copyright or related stuff if you use this.”
+Public Domain Dedication, aka “No Rights Reserved.” This one means, “If I hold copyright in this, I waive it."
 
-**Message for user:** Please keep the dataset creators informed of any plans to use the dataset. Consultation with the original investigators is strongly encouraged. Publications and data products that make use of the dataset should include proper acknowledgement.
+
+Consultation with the original investigators is strongly encouraged but not necessary. Publications and data products that make use of the dataset should include proper acknowledgement.
 
 or
 
@@ -129,7 +129,7 @@ or
 
 Attribution is required. CC licenses require that those who reuse a work provide attribution to the work’s creator by retaining “identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated).”
 
-**Message for user:** Data user is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data.
+**Message for user:** Data user is required to cite it appropriately in any publication that results from its use. 
 
 ## 7. Keywords
 _Using keywords from a controlled vocabulary (CV) will improve your data's future discovery and reuse.  The LTER CV is a good source for keywords. Access the [LTER CV here](https://vocab.lternet.edu/vocab/vocab/index.php).  Also, please determine one or two keywords that best describe your lab, station, and/or project (e.g., Trout Lake Station, NTL LTER).). Add as many rows to this table as needed_
