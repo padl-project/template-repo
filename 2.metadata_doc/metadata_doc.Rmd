@@ -121,7 +121,7 @@ _**Please highlight** the license for the release of your data. Click on the lic
 Public Domain Dedication, aka “No Rights Reserved.” This one means, “If I hold copyright in this, I waive it."
 
 
-Consultation with the original investigators is strongly encouraged but not necessary. Publications and data products that make use of the dataset should include proper acknowledgement.
+Consultation with the original investigators is strongly encouraged but not necessary. Publications and data products that make use of the dataset should include proper acknowledgment.
 
 or
 
@@ -134,7 +134,20 @@ Attribution is required. CC licenses require that those who reuse a work provide
 ## 7. Keywords
 _Using keywords from a controlled vocabulary (CV) will improve your data's future discovery and reuse.  The LTER CV is a good source for keywords. Access the [LTER CV here](https://vocab.lternet.edu/vocab/vocab/index.php).  Also, please determine one or two keywords that best describe your lab, station, and/or project (e.g., Trout Lake Station, NTL LTER).). Add as many rows to this table as needed_
 
-- Palmyra Atoll
+```{r, keywords table, echo = FALSE, message= FALSE, warning= FALSE, message= FALSE, warning= FALSE }
+
+key_words <- c("Palmyra Atoll", "")
+
+keyword_table <- tibble(key_words)
+
+```
+
+```{r, keywords table export, echo=FALSE, message= FALSE, warning= FALSE}
+
+flextable::flextable(keyword_table) %>% 
+  width(width = 1)
+  
+```
 
 
 
@@ -195,7 +208,7 @@ flextable::flextable(timeframe_table) %>%
 _Use decimal degrees to define a point or a bounding box._
 Every point you add will be displayed on a map once the data package is published. [See example here](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-sbc&identifier=108)
 
-**Verbal description:** Palmyra Atoll
+**Verbal description:** Palmyra Atoll National Wildlife Refuge
 
 ```{r, geographic location table, echo = FALSE, message= FALSE, warning= FALSE}
 
@@ -275,8 +288,22 @@ Each row in the below table describes one column in your data table.  Complete e
 - **Missing value code Explanation:** Why are these values missing? e.g.: value not available, value not recorded.
 
 
-**Table name:** (Add a short name for this table)
-**Table description:** (Add brief description of table contents)
+```{r, table description, echo = FALSE, message= FALSE, warning= FALSE}
+table_name <- " "
+table_description <- " "
+
+table_table <- tibble(table_name, table_description)
+
+```
+
+
+```{r, table description table, export, echo=FALSE, message= FALSE, warning= FALSE}
+
+flextable::flextable(table_table) %>% 
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
+```
+
+<br>
 
 
 ```{r, create data attributes tables, echo = FALSE, message= FALSE, warning= FALSE}

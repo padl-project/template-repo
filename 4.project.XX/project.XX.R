@@ -16,7 +16,7 @@ drive_find(n_max = 10)
 ## User edit zone
 
 # change the following number based on each of the datasets
-dataset_id <- 101
+dataset_id <- 110
 
 folder_path<- here::here(paste0("4.project.", dataset_id,"/"))
 
@@ -27,6 +27,7 @@ folder_path<- here::here(paste0("4.project.", dataset_id,"/"))
 source(paste0(getwd(), '/5.eml_generation/download_metadata.R'))
 source(paste0(getwd(), '/5.eml_generation/get_meta_xlsx.R'))
 source(paste0(getwd(), '/5.eml_generation/generate_EML_Assemblyline.R'))
+source(paste0(getwd(), '/5.eml_generation/write_eml_excel.R'))
 
 
 #read the metadata content out of xlsx
@@ -41,5 +42,6 @@ eml_in_template <- generate_EML_Assemblyline(
   dataset_id_input = dataset_id)
 
 # Export EML --------------------------------------------------------------------
-do.call(make_eml, eml_in_template[names(eml_in_template) %in% names(formals(make_eml))])
+write_eml_excel(eml_in_template)
+
 
