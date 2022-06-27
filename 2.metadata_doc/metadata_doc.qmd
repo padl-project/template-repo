@@ -23,7 +23,7 @@ The information in this document will be used to create the EML of the data pack
 
 ## 2. Dataset Title
 
-<!--_Include what, where, and when in the dataset title_-->
+*Include what, where, and when in the dataset title*
 
 -   
 
@@ -41,7 +41,13 @@ The information in this document will be used to create the EML of the data pack
 
 **We highly encourage you to create an ORCID if you don't already have one.** [Find more information here.](https://info.orcid.org/what-is-orcid/)
 
-```{r, creator_table, echo = FALSE, message= FALSE, warning= FALSE}
+| **First Name** | **Middle Initial** | **Last Name** | **Organization** | **Email** | **ORCID ID** |
+|------------|------------|------------|------------|------------|------------|
+|                |                    |               |                  |           |              |
+|                |                    |               |                  |           |              |
+|                |                    |               |                  |           |              |
+
+```{r, creator_table, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE, results='asis'}
 
 first_name <- c("", "")
 middle_in <- c("", "")
@@ -56,9 +62,6 @@ creator_table <- tibble(first_name, middle_in, last_name, organization, email, o
 
 colnames(creator_table) <- creator_colname
 
-```
-
-```{r, creators_table_export, echo=FALSE, message= FALSE, warning= FALSE, results = 'asis'}
 
 set_flextable_defaults(big.mark = " ", 
   font.size = 10, 
@@ -76,7 +79,7 @@ flextable::flextable(creator_table) %>%
 
 **We highly encourage you to create an ORCID if you don't already have one.** [Find more information here.](https://info.orcid.org/what-is-orcid/)
 
-```{r, personnel_table, echo = FALSE, message= FALSE, warning= FALSE}
+```{r, personnel_table, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
 
 p_first_name <- c("", "Camila")
 p_middle_in <- c("", "")
@@ -92,16 +95,13 @@ personnel_table <- tibble(p_first_name, p_middle_in, p_last_name, p_organization
 
 colnames(personnel_table) <- personnel_colnames
 
-```
-
-```{r, personnel_table_export, echo=FALSE, message= FALSE, warning= FALSE}
 
 flextable::flextable(personnel_table) %>% 
   width(width = 1)
 ```
 
 | First Name | Last Name      | Organization                                              | Email                  | ORCID ID | Role in Project  |
-|-----------|------------|------------|--------------|-----------|---------------|
+|------------|------------|------------|------------|------------|------------|
 |            |                |                                                           |                        |          | Contact          |
 | Camila     | Vargas Poulsen | PADL Data Manager, University of California Santa Barbara | camilavargas\@ucsb.edu |          | associated party |
 |            |                |                                                           |                        |          |                  |
@@ -134,10 +134,6 @@ key_words <- c("Palmyra Atoll", "")
 
 keyword_table <- tibble(key_words)
 
-```
-
-```{r, keywords_table_export, echo=FALSE, message= FALSE, warning= FALSE}
-
 flextable::flextable(keyword_table) %>% 
   width(width = 1)
   
@@ -147,7 +143,13 @@ flextable::flextable(keyword_table) %>%
 
 *List only the main PI of a grant that supported this project, starting with the main grant first. Add rows to the table if several grants were involved.*
 
-```{r, funding_table, echo = FALSE, message= FALSE, warning= FALSE, message= FALSE, warning= FALSE}
+| PI First Name | PI Last Name | PI Email | PI ORCID ID | Title of Grant | Funding Agency | Funding ID Number |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+|               |              |          |             |                |                |                   |
+|               |              |          |             |                |                |                   |
+|               |              |          |             |                |                |                   |
+
+```{r, funding_table, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE, message= FALSE, warning= FALSE}
 
 pi_first_name <- " "
 pi_middle_in <- " "
@@ -165,18 +167,20 @@ funding_table <- tibble(pi_first_name, pi_middle_in, pi_last_name, pi_email, pi_
 
 colnames(funding_table) <- fund_colnames
 
-```
-
-```{r, funding_table_export, echo=FALSE, message= FALSE, warning= FALSE}
-
 flextable::flextable(funding_table) %>% 
   width(width = 1)
-  
+
 ```
 
 ## 9. Timeframe
 
-```{r, timeframe_table, echo = FALSE, message= FALSE, warning= FALSE}
+| Begin Date | End Date | Is data collection ongoing or completed? |
+|------------|----------|------------------------------------------|
+|            |          |                                          |
+|            |          |                                          |
+|            |          |                                          |
+
+```{r, timeframe_table, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
 
 Information <- c("Begin date", "End date", "Is data collection ongoing or completed?")
 
@@ -208,7 +212,7 @@ flextable(geo_loc_table) %>%
 
 ```
 
-**Copy this block to add multiple points or areas.**\_
+**Copy this block to add multiple points or areas.**
 
 **Verbal description:**
 
@@ -233,7 +237,13 @@ Find an example [in this link](https://docs.google.com/document/d/1KdHJObHl5Bxxr
 
 *Is this data derived from other data? If so, you will want to document this information, so users know where this data came from. Please specify the source datasets used in the below provenance table, preferably with their DOI or URL. [Here is an example of a dataset derived from several others](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.101.3).*
 
-```{r, data_provenance, echo = FALSE, message= FALSE, warning= FALSE}
+| Dataset Title | Dataset DOI or URL | Creator Name | Contact Email |
+|---------------|--------------------|--------------|---------------|
+|               |                    |              |               |
+|               |                    |              |               |
+|               |                    |              |               |
+
+```{r, data_provenance, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
 
 data_title <- c(" ", " ")
 data_doi_url <- c("", "")
@@ -246,10 +256,6 @@ provenance_colnames <- c("Dataset title", "Dataset DOI or URL", "Creator Name", 
 provenance_table <- tibble(data_title, data_doi_url, creator_name, contact_email)
 
 colnames(provenance_table) <- provenance_colnames
-
-```
-
-```{r, provence_table_export, echo=FALSE, message= FALSE, warning= FALSE}
 
 flextable::flextable(provenance_table) %>% 
   autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
@@ -271,10 +277,6 @@ table_description <- " "
 
 table_table <- tibble(table_name, table_description)
 
-```
-
-```{r, table_description_table_export, echo=FALSE, message= FALSE, warning= FALSE}
-
 flextable::flextable(table_table) %>% 
   autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
 ```
@@ -285,13 +287,14 @@ flextable::flextable(table_table) %>%
 
 ## Location of datasets in the package
 
-path_data <- here::here("7.clean_data")
+path_data <- glue("{dir_gdrive}/DATA_RAW/dataset_folder/dataset") 
+# Update this with the location of the data in the drive
 path_templates <- here::here("3.data_attributes")
 
 #-----------------------------------------------------------------#
 
 
-## If there is just one file in 7.clean_data run this code
+## If there is just one data file run this code
 ## **UPDATE NAMES**
 
 # file1_name <- "FILE NAME"
@@ -308,7 +311,7 @@ path_templates <- here::here("3.data_attributes")
 
 #------------------------------------------------------------------#
 
-## If there is more than one data set in 7.clean_data, run this code
+## If there is more than one data set, run this code
 
 ## Create table with all the file names
 # files_names <- tibble(
@@ -409,7 +412,13 @@ Cell Geometry (e.g. pixel) -->
 
 *List any software scripts/code you would like to archive along with your data. These may include processing scripts you wrote to create, clean, or analyze the data.*
 
-```{r, script_info, echo = FALSE, message= FALSE, warning= FALSE}
+| Filename | Description | Scripting Language |
+|----------|-------------|--------------------|
+|          |             |                    |
+|          |             |                    |
+|          |             |                    |
+
+```{r, script_info, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
 
 file_name <- " "
 description <- " "
@@ -423,11 +432,7 @@ script_info <- tibble(file_name, description, language)
 
 colnames(script_info) <- script_info_colnames
 
-```
-
-```{r, script_info_export, echo=FALSE, message= FALSE, warning= FALSE}
-
-flextable::flextable(script_info) %>% 
+flextable::flextable(script_info) %>%
   autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
 ```
 
@@ -437,7 +442,13 @@ flextable::flextable(script_info) %>%
 
 **Note:** At the moment, we are not including any photographic data.
 
-```{r, other_objects, echo = FALSE, message= FALSE, warning= FALSE}
+| Filename | Description | Data Type |
+|----------|-------------|-----------|
+|          |             |           |
+|          |             |           |
+|          |             |           |
+
+```{r, other_objects, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
 
 misc_file_name <- " "
 misc_description <- " "
@@ -450,10 +461,6 @@ other_objects <- tibble(misc_file_name, misc_description, misc_data_type)
 
 colnames(other_objects) <- other_obj_colnames
 
-```
-
-```{r, other_objects_export, echo=FALSE, message= FALSE, warning= FALSE}
-
 flextable::flextable(other_objects) %>% 
   autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
 ```
@@ -462,7 +469,14 @@ flextable::flextable(other_objects) %>%
 
 *List articles citing this dataset. Add as many rows as necessary*
 
-```{r, publications, echo = FALSE, message= FALSE, warning= FALSE}
+|                                           |               |               |
+|-------------------------------------------|---------------|---------------|
+| **Article DOI or URL (DOI is preferred)** | Article title | Journal title |
+|                                           |               |               |
+|                                           |               |               |
+|                                           |               |               |
+
+```{r, publications, include=FALSE, echo = FALSE, message= FALSE, warning= FALSE}
 
 doi <- " "
 article_title <- " "
@@ -474,10 +488,6 @@ publications_colnames <- c("Article DOI or URL (DOI is preferred)", "Article tit
 publications <- tibble(doi, article_title, journal)
 
 colnames(publications) <- publications_colnames
-
-```
-
-```{r, publications_export, echo=FALSE, message= FALSE, warning= FALSE}
 
 flextable::flextable(publications) %>% 
   autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
