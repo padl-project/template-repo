@@ -1,7 +1,7 @@
 ---
 title: "ADD TILE"
 author: "ADD AUTHOR"
-date: "ADD DATE"
+date: "`r Sys.Date()`"
 output: word_document
 ---
 
@@ -9,9 +9,9 @@ output: word_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-library(tidyverse)
-library(EMLassemblyline)
-library(flextable)
+librarian::shelf("EMLassemblyline", "flextable", "glue", "tidyverse")
+
+dir_gdrive <- "/Volumes/GoogleDrive/Shared drives/Palmyra_DataTransfer_EDI_Project/Palmyra_DataTransfer_EDI_Project/DATA_metadata"
 
 ```
 
@@ -44,7 +44,7 @@ _These are the people who will show up as authors in the dataset citation. These
 
 **We highly encourage you to create an ORCID if you don't already have one.** [Find more information here.](https://info.orcid.org/what-is-orcid/)
 
-```{r, creator table, echo = FALSE, message= FALSE, warning= FALSE}
+```{r, creator_table, echo = FALSE, message= FALSE, warning= FALSE}
 
 first_name <- c("", "")
 middle_in <- c("", "")
@@ -62,7 +62,7 @@ colnames(creator_table) <- creator_colname
 ```
 
 
-```{r, creators table export, echo=FALSE, message= FALSE, warning= FALSE, results = 'asis'}
+```{r, creators_table_export, echo=FALSE, message= FALSE, warning= FALSE, results = 'asis'}
 
 set_flextable_defaults(big.mark = " ", 
   font.size = 10, 
@@ -529,7 +529,13 @@ flextable::flextable(publications) %>%
 _Please let us know if you have any additional comments or questions about your data or the EML information. THANK YOU!_
 
 
+```{r, include=FALSE}
 
+# Copy the doc file that was created to the correct folder in drive
+# Example below
+# file.copy(from = here("2.metadata_doc/metadata_doc_file.docx"), to = glue("{dir_gdrive}/carlson-chlorurus/"))
+
+```
 
 
 

@@ -1,0 +1,76 @@
+---
+title: "Cleaning Raw Data"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+librarian::shelf("freeR", "glue", "googledrive", "here", "janitor", "lubridate", "readxl", "tidyverse")
+
+options(scipen=999)
+
+dir_gdrive <- "/Volumes/GoogleDrive/Shared drives/Palmyra_DataTransfer_EDI_Project"
+```
+
+## Read in the Data from Google Drive 
+
+To do this step, you need to have Google Drive installed on your computer so that you can access Google Drive files using Google File Stream 
+
+```{r}
+
+# you can use read_csv, readxl, etc to read in files here as if you were doing it from your local machine. 
+# Example below 
+# chlorurus_activity <- read_csv(glue("{dir_gdrive}/DATA_RAW/Peter Carlson/Chlorurus_Activity_data.csv")) %>% 
+#   clean_names()
+
+# To add multiple files from the drive into a tibble 
+# multiple_files <- tibble(list.files(glue("{dir_gdrive}/DATA_RAW/Peter Carlson/"), pattern = ".csv"))
+
+
+
+```
+
+
+## Explore the Data 
+
+```{r}
+
+
+
+```
+
+
+### Highlight Changes Required 
+
+You can add a bullet point list here 
+
+
+
+
+## Clean the Data 
+
+```{r}
+
+
+
+```
+
+## Save the Clean Data 
+
+Use this code chunk to upload the cleaned data directly to google drive. You write the file directly to the drive as if you were saving it to a local file 
+
+```{r}
+# You can use write_csv or any other function like that to write directly to the drive. 
+
+# Example below: 
+# write_csv(chlorurus_activity, glue("{dir_gdrive}/DATA_RAW/Peter 
+# Carlson/Chlorurus_Activity_Palmyra_2014-test.csv"))
+
+
+
+```
+
+
+

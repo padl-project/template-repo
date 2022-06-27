@@ -9,10 +9,7 @@ This script downloads data from a specific folder on our Google Drive
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-library(googledrive)
-library(here)
-library(tidyverse)
-
+librarian::shelf("here", "googledrive", "tidyverse")
 
 ## Sets R not to use scientific notations
 options(scipen=999) 
