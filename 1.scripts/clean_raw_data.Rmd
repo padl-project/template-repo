@@ -1,5 +1,5 @@
 ---
-title: "Cleaning Raw Data"
+title: "Clean Raw Data"
 output: html_document
 date: "`r Sys.Date()`"
 ---

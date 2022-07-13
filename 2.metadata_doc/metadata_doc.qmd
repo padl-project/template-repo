@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 librarian::shelf("EMLassemblyline", "flextable", "glue", "tidyverse")
 
-dir_gdrive <- "/Volumes/GoogleDrive/Shared drives/Palmyra_DataTransfer_EDI_Project/Palmyra_DataTransfer_EDI_Project/DATA_metadata"
+dir_gdrive <- "/Volumes/GoogleDrive/Shared drives/Palmyra_DataTransfer_EDI_Project/"
 
 ```
 
