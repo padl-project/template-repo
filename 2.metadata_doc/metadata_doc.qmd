@@ -9,8 +9,7 @@ editor: visual
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-librarian::shelf("EMLassemblyline", "flextable", "glue", "tidyverse")
-
+librarian::shelf("EMLassemblyline", "flextable", "glue", "here", "tidyverse")
 dir_gdrive <- "/Volumes/GoogleDrive/Shared drives/Palmyra_DataTransfer_EDI_Project/"
 
 ```
@@ -351,6 +350,7 @@ path_templates <- here::here("3.data_attributes")
 ```
 
 ```{r, attribute_table_1, echo=FALSE, message= FALSE, warning= FALSE}
+# You will need as many attribute tables as you have data attributes 
 
 # flextable::flextable(data_attributes1) %>% 
 #   width(width = 1)
@@ -370,23 +370,57 @@ path_templates <- here::here("3.data_attributes")
 
 ```{r, attribute_code, echo = FALSE, message= FALSE, warning= FALSE}
 
-## Note: there can only be one file with he prefix attribute_ in the data attribute folder.
-# EMLassemblyline::template_categorical_variables(
+## Attributes list of Files 
+attributes_names <- tibble(
+  list.files(path_templates, pattern = "attributes_")) %>% 
+  rename(file_name = 1) %>% 
+  mutate(file_name = str_remove(file_name, ".txt"),
+         catvar_name = paste0("catvar", 1:n()),
+         position = 1:n())
+
+## Create catvars file
+# for (i in attributes_names$file_name){
+# 
+#   EMLassemblyline::template_categorical_variables(
 #   path = path_templates,
 #   data.path = path_data)
+# }
 
-# **UPDATE NAMES**
+##General function
+read_catvar <- function(test){
+  
+  read.delim2(here::here(paste0("3.data_attributes/catvars_", test, ".txt")))
+}
 
-# cat_vars <- read.delim2(here::here(paste0("3.data_attributes/catvars_", file1_name,".txt")))
+## Loop to read and name each file 
+for (i in attributes_names$position){
+  
+  assign(attributes_names$catvar_name[i], read_catvar(files_names$file_name[i]))
+}
 
 ```
 
-```{r, categorical_variables_table, echo=FALSE, message= FALSE, warning= FALSE}
+```{r, categorical variables table 1, echo=FALSE, message= FALSE, warning= FALSE}
 
-# flextable::flextable(cat_vars) %>%
-#   autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
-#   
+flextable::flextable(catvar1) %>%
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
 
+```
+
+<br>
+
+```{r, categorical variables table 2, echo=FALSE, message= FALSE, warning= FALSE}
+flextable::flextable(catvar2) %>%
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
+  
+```
+
+<br>
+
+```{r, categorical variables table 3, echo=FALSE, message= FALSE, warning= FALSE}
+flextable::flextable(catvar3) %>%
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
+  
 ```
 
 ```{=html}
